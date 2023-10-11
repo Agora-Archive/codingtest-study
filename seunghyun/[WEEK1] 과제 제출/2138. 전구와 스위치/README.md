@@ -2,6 +2,10 @@
 
 [문제 링크](https://www.acmicpc.net/problem/2138) 
 
+### 문제 풀이
+
+https://www.notion.so/1459-a8363f56d6ce4e3f9a0b7c604580721f
+
 ### 성능 요약
 
 메모리: 17892 KB, 시간: 200 ms
