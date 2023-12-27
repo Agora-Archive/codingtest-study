@@ -1,4 +1,3 @@
 # codingtest-study
-김승제
 
-?
+김승제
