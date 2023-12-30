@@ -6,25 +6,29 @@ using namespace std;
 int arr[MAX];
 int sum[MAX][MAX];
 int len = 0;
+bool found = false; //ë¬¸ì œì˜ ì „ì—­ë³€ìˆ˜
 
 void Sum(int n, int x, vector<int>& ans) {
-	if (x == 0 || n < 1) { //´õÀÌ»ó Å½»öÇÏÁö ¸øÇÔ
-		if (x == 0) { //ÇÕÀÌ Á¤´ä°ú °°À» ¶§
-			sum[len][0] = ans.size(); //ÇöÀç Á¤´ä º¤ÅÍÀÇ Å©±â ÀúÀå
-			for (int i = 1; i <= ans.size(); i++) { //Á¤´ä º¤ÅÍÀÇ ¿ø¼Ò ¼ø¼­´ë·Î ÀúÀå
-				sum[len][i] = ans.at(i - 1);
-			}
-			len++; //Á¤´ä °³¼ö Áõ°¡
+    if (found) //ì´ë¯¸ ì°¾ì•˜ìœ¼ë©´ ëª¨ë“  ì¬ê·€ ì¢…ë£Œ
+        return;
+	if (x == 0 || n < 1) { //ë”ì´ìƒ íƒìƒ‰í•˜ì§€ ëª»í•¨
+		if (x == 0) { //í•©ì´ ì •ë‹µê³¼ ê°™ì„ ë•Œ
+			 for (int i = 1; i <= ans.size(); i++) { //ì •ë‹µ ë²¡í„°ì˜ ì›ì†Œ ìˆœì„œëŒ€ë¡œ ì¶œë ¥
+                cout<<ans.at(i-1)<<" ";
+			 }
+             found = true;
+             cout<<endl;
+             return;
 		}
 		return;
 	}
 
-	if (x >= arr[n]) { //ÇöÀç ¿ø¼Òº¸´Ù ³²Àº ¼ö°¡ ¸¹À» ¶§
-		ans.push_back(arr[n]); //º¤ÅÍ¿¡ ÇöÀç ¼ö ³Ö±â
-		Sum(n - 1, x - arr[n], ans); //´ÙÀ½ Àç±Í
-		ans.pop_back(); //³ÖÀº°Å »©±â
+	if (x >= arr[n]) { //í˜„ì¬ ì›ì†Œë³´ë‹¤ ë‚¨ì€ ìˆ˜ê°€ ë§ì„ ë•Œ
+		ans.push_back(arr[n]); //ë²¡í„°ì— í˜„ì¬ ìˆ˜ ë„£ê¸°
+		Sum(n - 1, x - arr[n], ans); //ë‹¤ìŒ ì¬ê·€
+		ans.pop_back(); //ë„£ì€ê±° ë¹¼ê¸°
 	}
-	Sum(n - 1, x, ans); //³ÖÁö ¾Ê¾ÒÀ» ¶§ Àç±Í
+	Sum(n - 1, x, ans); //ë„£ì§€ ì•Šì•˜ì„ ë•Œ ì¬ê·€
 }
 
 int main() {
@@ -32,35 +36,26 @@ int main() {
 	FILE* fp;
 	int n, x;
 
-	printf("ÆÄÀÏ ÀÌ¸§? ");
-	gets_s(fname); //ÆÄÀÏ ÀÌ¸§ ÀÔ·Â
-	fp = fopen(fname, "r"); //ÆÄÀÏ ¿­±â
+	printf("íŒŒì¼ ì´ë¦„? ");
+	gets(fname); //íŒŒì¼ ì´ë¦„ ì…ë ¥
+	fp = fopen(fname, "r"); //íŒŒì¼ ì—´ê¸°
 	if (fp == NULL) {
-		printf("ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+		printf("íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\\n");
 		return 0;
 	}
-	
-	fscanf(fp, "%d", &n); //ÆÄÀÏ¿¡¼­ n ÀĞ¾î¿À±â
-	for (int i = 1; i <= n; i++) { //ÆÄÀÏ¿¡¼­ ¼ø¼­´ë·Î Á¤¼ö ºÒ·¯¿Í arr¿¡ ÀúÀå
+
+	fscanf(fp, "%d", &n); //íŒŒì¼ì—ì„œ n ì½ì–´ì˜¤ê¸°
+	for (int i = 1; i <= n; i++) { //íŒŒì¼ì—ì„œ ìˆœì„œëŒ€ë¡œ ì •ìˆ˜ ë¶ˆëŸ¬ì™€ arrì— ì €ì¥
 		fscanf(fp, "%d", &arr[i]);
 	}
-	cout << "Ã£°íÀÚ ÇÏ´Â ÇÕ? ";
-	cin >> x; //ºÎºĞÁıÇÕ ±¸ÇÒ ÇÕ ÀÔ·Â
-	
-	vector<int>ans; 
-	
-	Sum(n, x, ans);
+	cout << "ì°¾ê³ ì í•˜ëŠ” í•©? ";
+	cin >> x; //ë¶€ë¶„ì§‘í•© êµ¬í•  í•© ì…ë ¥
 
-	if (len == 0)
-		cout << "ºÎºĞÁıÇÕÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.";
-	else {
-		cout << "[ ";
-		for (int i = sum[0][0]; i > 0; i--) {
-			cout << sum[0][i];
-			if (i > 1)
-				cout << ", ";
-		}
-		cout << " ]";
-	}
+	vector<int>ans;
+	int suc = 0;
+	Sum(n, x, ans);
+    if (!found)
+        cout<<"ë¶€ë¶„ì§‘í•©ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
+
 	return 0;
 }
