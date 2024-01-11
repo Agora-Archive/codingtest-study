@@ -15,9 +15,7 @@ int main() {
     }
 
     weight = 0;
-    while (1) {
-        if (truck.empty())
-            break;
+    while (!truck.empty()) {
         if (bridge.size() >= w) { //다리가 꽉찼다면 제일 앞 트럭 팝
             weight -= bridge.front();
             bridge.pop();
