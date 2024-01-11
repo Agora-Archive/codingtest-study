@@ -23,8 +23,10 @@ void Union(int i, int j) {
 int main() {
     cin >> n >> m;
     int input;
+    
     for (int i = 1; i <= n; i++)
         arr[i] = i;
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             cin >> input;

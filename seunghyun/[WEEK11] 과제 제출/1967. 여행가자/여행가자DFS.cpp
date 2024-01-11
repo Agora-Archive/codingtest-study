@@ -9,9 +9,10 @@ bool search(int trip, int next_trip, bool visited[201]) {
 
     if (trip == next_trip) //현재 위치와 다음 위치가 같음
         return true;
-    if (city[trip][next_trip] == 1) { //현재 위치와 다음 위치가 이어져있음
+
+    if (city[trip][next_trip] == 1)  //현재 위치와 다음 위치가 이어져있음
         return true;
-    }
+
     for (int i = 1; i <= n; i++) { //모든 경우를 살펴봄
         if (city[trip][i] == 1 && !visited[i]) { //현재 위치와 이어진 곳이 방문되지 않았으면 재귀로 살펴봄
             visited[i] = true;
