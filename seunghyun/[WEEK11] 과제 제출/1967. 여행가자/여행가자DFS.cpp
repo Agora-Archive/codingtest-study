@@ -15,10 +15,8 @@ bool search(int trip, int next_trip, bool visited[201]) {
     for (int i = 1; i <= n; i++) { //모든 경우를 살펴봄
         if (city[trip][i] == 1 && !visited[i]) { //현재 위치와 이어진 곳이 방문되지 않았으면 재귀로 살펴봄
             visited[i] = true;
-
             if (search(i, next_trip, visited))
                 return true;
-
         }
     }
     return false;
