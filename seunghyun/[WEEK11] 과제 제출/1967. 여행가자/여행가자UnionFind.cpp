@@ -33,7 +33,6 @@ int main() {
 
         }
     }
-
     int cur, next;
     bool trip = true;
     cin >> cur;
