@@ -33,7 +33,7 @@ int main() {
 				if (isR) dq.pop_back();
 				else dq.pop_front();
 			}
-			else if (p[i] == 'D' && dq.empty()) { cout << "error" << '\n'; isError = true; break; }
+			else { cout << "error" << '\n'; isError = true; break; }
 		}
 		
 		if (!isError) {
