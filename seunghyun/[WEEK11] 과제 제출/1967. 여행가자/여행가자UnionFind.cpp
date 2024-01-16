@@ -16,14 +16,12 @@ void Union(int i, int j) {
     if (i == j) //i와 j 같으면 종료
         return;
     arr[i] = j; //다르면 i의 부모를 j로 바꿔서 합침
-    Find(i); //i의 부모 찾기
-
 }
 
 int main() {
     cin >> n >> m;
     int input;
-    
+
     for (int i = 1; i <= n; i++)
         arr[i] = i;
 
@@ -40,10 +38,10 @@ int main() {
     cin >> cur;
     for (int i = 1; i < m; i++) {
         cin >> next;
-        if (Find(cur) != Find(next)) //현재 위치와 다음 위치가 연결되어 있지 않음
+        if (Find(cur) != Find(next)) {//현재 위치와 다음 위치가 연결되어 있지 않음
             trip = false;
-        if (!trip)
             break;
+        }
         cur = next;
     }
     if (trip)
