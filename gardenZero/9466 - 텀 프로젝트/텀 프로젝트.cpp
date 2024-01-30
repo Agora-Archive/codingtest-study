@@ -1,7 +1,4 @@
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 
@@ -13,7 +10,7 @@ int main(){
 
     int student, cur, nxt, result;
     int arr[100001];
-    int visited[100001];
+    bool visited[100001];
 
     queue<int> q;
     while(tc--){
