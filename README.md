@@ -16,6 +16,6 @@
 김승제 : https://velog.io/@tmdwp0910   
 이승현 : https://velog.io/@tmdgus5115  
 정민주 : https://velog.io/@jung-min-ju   
-정원영 : https://time-savers.tistory.com   
+정원영 : https://gardenzeeero.github.io/categories/baekjoon/
 황선안 : https://velog.io/@sernan96 
 
