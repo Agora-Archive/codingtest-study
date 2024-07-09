@@ -81,5 +81,5 @@ public class Main {
             return find(parent[x]);
         }
     }
-
 }
+//리뷰용 재커밋
