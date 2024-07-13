@@ -35,7 +35,7 @@ public class Main {
             cnt++;
         }
         visited[x][y]=true;//1번 청소한다
-        if((room[x+1][y]==1||visited[x+1][y])&&(room[x][y+1]==1||visited[x][y+1])&&(room[x-1][y]==1||visited[x-1][y])&&(room[x][y-1]==1||visited[x][y-1])){//2번 동서남북 4칸 중 0이 없을 경우
+        if(cantGo(x,y)){//2번 동서남북 4칸 중 0이 없을 경우
             int moveDir;
             if(dir >=2){//방향을 뒤집어줌
                 moveDir=dir%2;
@@ -57,11 +57,11 @@ public class Main {
         }
     }
     static int turn(int dir){
-        if(dir ==0){//방향을 반시계로 90도 회전하고 시작해야함
-            return 3;
-        }
-        else{
-            return dir-1;
-        }
+        return dir == 0 ? 3 : dir -1;
+    }
+
+    // 함수로 만들어주기
+    static boolean cantGo(int x, int y){
+        return (room[x+1][y]==1||visited[x+1][y])&&(room[x][y+1]==1||visited[x][y+1])&&(room[x-1][y]==1||visited[x-1][y])&&(room[x][y-1]==1||visited[x][y-1]);
     }
 }
