@@ -123,7 +123,7 @@ int main(){
         }else if(ct == 1){
             trying(1);
             trying(2);
-        }else{git 
+        }else{
             trying(0);
             trying(1);
             trying(2);
