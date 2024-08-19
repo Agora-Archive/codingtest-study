@@ -24,18 +24,14 @@ public class Main{
         PriorityQueue<jewelry> pq = new PriorityQueue<>();
         while (N--!=0){
             StringTokenizer input = new StringTokenizer(br.readLine());
-            pq.add(new jewelry(Integer.parseInt(input.nextToken()),Integer.parseInt(input.nextToken())));
+            int w = Integer.parseInt(input.nextToken());
+            int v = Integer.parseInt(input.nextToken());
+            pq.add(new jewelry(w,v));
         }
-        ArrayList<Integer> arr = new ArrayList<>();
         TreeMap<Integer, Integer> nearby = new TreeMap<>();
         while (K--!=0){
             int w= Integer.parseInt(br.readLine());
-            if(nearby.containsKey(w)){
-                nearby.put(w, nearby.get(w)+1);
-            }
-            else {
-                nearby.put(w,1);
-            }
+            nearby.put(w, nearby.getOrDefault(w,0)+1);
         }
         long result =0;
         while(!nearby.isEmpty()&&!pq.isEmpty()){
@@ -43,7 +39,6 @@ public class Main{
             if(current.weight<=nearby.lastKey()){//담을 수 있는 보석이라면
                 Integer a = nearby.ceilingKey(current.weight);
                 if(a!=null){
-                    //System.out.println(a+" 삭제");
                     if(nearby.get(a)==1){
                         nearby.remove(a);
                     }
