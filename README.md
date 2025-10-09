@@ -13,7 +13,7 @@
 - 대면 시간에는 서로 정리해온 문제를 발표
 
 ### 스터디원
-김승제 : https://velog.io/@tmdwp0910   
+김승제 : https://tony1724.tistory.com   
 이승현 : https://velog.io/@tmdgus5115  
 정민주 : https://velog.io/@jung-min-ju   
 정원영 : https://gardenzeeero.github.io/categories/baekjoon/   
